@@ -1,0 +1,22 @@
+[
+    {
+            "hospital":"CHC",
+            "location":"Parassala",
+            "patients":150
+    },
+    {
+            "hospital":"GH",
+            "location":"Neyyattinkara",
+            "patients":200
+    },
+    {
+            "hospital":"MCH",
+            "location":"Trivandrum",
+            "patients":500
+    },
+    {
+            "hospital":"PHC",
+            "location":"Kunnathukal",
+            "patients":50
+    }
+]
