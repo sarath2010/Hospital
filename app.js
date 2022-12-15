@@ -11,7 +11,7 @@ app.get("/hospitals",(req,res)=>{
 
 app.post("/hospitals",(req,res)=>{
     data.push(req.body);
-    fs.writeFile("dataset.json",JSON.stringify(data),(err,resp)=>{
+    fs.writeFile("db.json",JSON.stringify(data),(err,resp)=>{
         if(err){
             res.send("Data couldn't be written.");
             }
@@ -30,13 +30,26 @@ app.put("/hospitals/:name",(req,res)=>{
             }
     })
 
-fs.writeFile("dataset.json",JSON.stringify(data),(err,resp)=>{
+fs.writeFile("db.json",JSON.stringify(data),(err,resp)=>{
     if(err){
         res.send("Data could not be updated.");
         }
     else{
         res.send("Successfully updated.");        
         }
+    })
+})
+
+app.delete("/hospitals/:name",(req,res)=>{
+    let name=req.params.name;
+    let value=data.filter(item=>item.hospital!==name);
+    fs.writeFile("db.json",JSON.stringify(value),(err,resp)=>{
+        if(err){
+            res.send("Unsuccessful delete attempt.");
+            }
+        else{
+            res.send("Data deleted successfully.");
+            }
     })
 })
 
